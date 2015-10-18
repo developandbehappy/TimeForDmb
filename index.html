@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>До дембеля брат</title>
+	<style type="text/css">
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	h1 {
+		text-align: center
+	}
+	body {
+		background: #eee
+	}
+	</style>
+</head>
+<body>
+<h1>До дома</h1>
+<div style="margin:auto;border:1px solid #888;text-align:center;width: 200px;">
+	<ul>
+		<span>Стасу до дома осталось</span>
+		<h3 id='days'></h3>
+		<h3 id='hours'></h3>
+		<h3 id='minute'></h3>
+		<h3 id='time'></h3>
+		<h3 id='procent'></h3>
+	</ul>
+</div>
+<script type="text/javascript">
+	window.setInterval(init, 100);
+	function init () {
+		var time = document.getElementById('time');
+		var minute = document.getElementById('minute');
+		var days = document.getElementById('days');
+		var procentt = document.getElementById('procent');
+		var hours = document.getElementById('hours');
+		var lastTime = new Date('11 30 2015');
+		var dateNowIs = new Date();
+		var years = 365;
+		var procent = years/100;
+		var lostTime = lastTime - dateNowIs;
+		time.innerText = Math.floor(lostTime/1000) + ' Секунд';
+		days.innerText = Math.floor(lostTime/60/60000/24) + ' Дней';
+		minute.innerText = Math.floor(lostTime/1000/60) + ' Минут';
+		procentt.innerText = 100 - lostTime/60/60000/24/procent + ' %';
+		hours.innerText =  Math.floor(lostTime/1000/60/60) + ' часов';
+	}
+</script>
+</body>
+</html>
